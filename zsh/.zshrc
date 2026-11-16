@@ -26,6 +26,12 @@ fi
 export EDITOR='nvim'
 export VISUAL='nvim'
 
+# Fix GNU ls colors (eliminate bright green background on other-writable/sticky dirs)
+if command -v dircolors >/dev/null 2>&1; then
+    eval "$(dircolors -b 2>/dev/null)"
+    export LS_COLORS="$LS_COLORS:ow=01;34:tw=01;34:st=01;34:"
+fi
+
 # Aliases
 alias vim=nvim
 alias v=nvim

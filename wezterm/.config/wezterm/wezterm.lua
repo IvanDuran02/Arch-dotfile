@@ -7,14 +7,33 @@ config.default_prog = { "/usr/bin/zsh", "-l" }
 -- Wayland Support
 config.enable_wayland = true
 
--- Font Configuration
+-- Font Configuration (Explicitly using JetBrainsMono Nerd Font)
 config.font = wezterm.font_with_fallback({
-	"JetBrainsMono Nerd Font",
-	"JetBrains Mono",
-	"monospace",
+	{ family = "JetBrainsMono Nerd Font", weight = "Regular" },
+	{ family = "JetBrains Mono", weight = "Regular" },
 })
-config.font_size = 15.0
+config.font_size = 20.0
 config.line_height = 1.15
+
+-- Enable font rules for crisp bold & italic rendering
+config.font_rules = {
+	{
+		intensity = "Bold",
+		italic = false,
+		font = wezterm.font({
+			family = "JetBrainsMono Nerd Font",
+			weight = "Bold",
+		}),
+	},
+	{
+		intensity = "Normal",
+		italic = true,
+		font = wezterm.font({
+			family = "JetBrainsMono Nerd Font",
+			style = "Italic",
+		}),
+	},
+}
 
 -- Color Palette
 config.color_scheme = "Catppuccin Mocha"
