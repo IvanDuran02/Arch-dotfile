@@ -1,34 +1,25 @@
 #!/usr/bin/env bash
-
 # ==============================================================================
-# Dotfiles Installation & Symlink Script
+# Dotfiles Bootstrap Script (Powered by chezmoi)
 # ==============================================================================
-set -e
+set -euo pipefail
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-echo "==> Deploying dotfiles from: $DOTFILES_DIR"
+CHEZMOI_BIN=""
 
-# Ensure target directories exist
-mkdir -p "$HOME/.config" "$HOME/.local/bin" "$HOME/.vim/undodir" "$HOME/Pictures/Screenshots"
-
-# Make helper scripts executable
-chmod +x "$DOTFILES_DIR/bin/.local/bin/tmux-sessionizer"
-
-if command -v stow >/dev/null 2>&1; then
-    echo "==> GNU Stow detected. Linking packages..."
-    cd "$DOTFILES_DIR"
-    stow -v -R -t "$HOME" wezterm nvim tmux hypr zsh bin waybar
+if command -v chezmoi &>/dev/null; then
+    CHEZMOI_BIN="chezmoi"
+elif [ -x "$HOME/.local/bin/chezmoi" ]; then
+    CHEZMOI_BIN="$HOME/.local/bin/chezmoi"
 else
-    echo "==> GNU Stow not installed. Creating direct symlinks..."
-    ln -sfn "$DOTFILES_DIR/wezterm/.config/wezterm" "$HOME/.config/wezterm"
-    ln -sfn "$DOTFILES_DIR/nvim/.config/nvim"       "$HOME/.config/nvim"
-    ln -sfn "$DOTFILES_DIR/tmux/.config/tmux"       "$HOME/.config/tmux"
-    ln -sfn "$DOTFILES_DIR/waybar/.config/waybar"   "$HOME/.config/waybar"
-    ln -sf  "$DOTFILES_DIR/hypr/.config/hypr/hyprland.lua" "$HOME/.config/hypr/hyprland.lua"
-    ln -sf  "$DOTFILES_DIR/zsh/.zshrc"             "$HOME/.zshrc"
-    ln -sf  "$DOTFILES_DIR/bin/.local/bin/tmux-sessionizer" "$HOME/.local/bin/tmux-sessionizer"
+    echo "==> chezmoi not found. Installing to ~/.local/bin..."
+    mkdir -p "$HOME/.local/bin"
+    sh -c "$(curl -fsLS https://get.chezmoi.io)" -- -b "$HOME/.local/bin"
+    CHEZMOI_BIN="$HOME/.local/bin/chezmoi"
 fi
 
+echo "==> Deploying dotfiles using chezmoi (source: $DOTFILES_DIR)..."
+"$CHEZMOI_BIN" init --source="$DOTFILES_DIR" --apply
+
 echo "==> Dotfiles setup complete!"
-echo "==> To reload Hyprland config: hyprctl reload"
-echo "==> To start tmux with sessionizer: press Ctrl-Space followed by f, or run tmux-sessionizer"
+echo "==> To reload Hyprland: hyprctl reload"
