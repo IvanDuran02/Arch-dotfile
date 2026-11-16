@@ -6,6 +6,10 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
+# Keep completion dump in cache rather than polluting home directory
+mkdir -p "$HOME/.cache/zsh"
+export ZSH_COMPDUMP="$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"
+
 # Plugins
 plugins=(git)
 
