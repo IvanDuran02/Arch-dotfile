@@ -32,6 +32,10 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
+-- Statusline & Command line
+vim.opt.laststatus = 3
+vim.opt.cmdheight = 0
+
 -- Native Wayland clipboard integration
 if vim.fn.has("wsl") == 0 and os.getenv("WAYLAND_DISPLAY") ~= nil then
 	vim.opt.clipboard = "unnamedplus"

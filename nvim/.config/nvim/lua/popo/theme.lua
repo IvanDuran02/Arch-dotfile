@@ -22,7 +22,6 @@ return {
 					which_key = true,
 					snacks = true,
 					trouble = true,
-					lualine = true,
 					mini = { enabled = true },
 				},
 			})
@@ -43,7 +42,7 @@ return {
 	},
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		dependencies = { "nvim-tree/nvim-web-devicons", "catppuccin" },
 		opts = {
 			options = {
 				theme = "catppuccin-mocha",
