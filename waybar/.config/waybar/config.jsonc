@@ -1,11 +1,11 @@
 {
     "layer": "top",
     "position": "bottom",
-    "height": 38,
-    "margin-bottom": 8,
+    "height": 30,
+    "margin-bottom": 6,
     "margin-left": 14,
     "margin-right": 14,
-    "spacing": 8,
+    "spacing": 5,
 
     // Modules layout
     "modules-left": [
