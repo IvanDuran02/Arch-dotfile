@@ -15,7 +15,27 @@ fi
 
 # Environment & PATH
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
+
+# Golang
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$PATH:$GOBIN"
+
+# Rust (Cargo)
+if [ -d "$HOME/.cargo/bin" ]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+# Fast Node Manager (fnm)
+if command -v fnm >/dev/null 2>&1; then
+    eval "$(fnm env --use-on-cd --shell zsh)"
+fi
+
+# jenv (Java Version Manager)
+export PATH="$HOME/.jenv/bin:$PATH"
+if command -v jenv >/dev/null 2>&1; then
+    eval "$(jenv init -)"
+fi
 
 if [ -d "$HOME/Android/Sdk" ]; then
     export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
