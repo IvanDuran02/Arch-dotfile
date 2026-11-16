@@ -1,0 +1,6 @@
+.DS_Store
+*.swp
+*.swo
+tmux/.config/tmux/plugins/tpm/*
+!tmux/.config/tmux/plugins/tpm/.git
+tmux/.config/tmux/plugins/tpm
