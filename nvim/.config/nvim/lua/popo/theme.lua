@@ -22,6 +22,7 @@ return {
 					which_key = true,
 					snacks = true,
 					trouble = true,
+					lualine = true,
 					mini = { enabled = true },
 				},
 			})
@@ -45,7 +46,7 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
 			options = {
-				theme = "catppuccin",
+				theme = "catppuccin-mocha",
 				section_separators = "",
 				component_separators = "",
 			},
