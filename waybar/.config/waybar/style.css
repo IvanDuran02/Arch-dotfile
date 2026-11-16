@@ -1,0 +1,146 @@
+/* ==============================================================================
+   WAYBAR CATPPUCCIN MOCHA STYLESHEET
+   ============================================================================== */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+    font-size: 14px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* Floating Bar Container */
+window#waybar > box {
+    background: rgba(30, 30, 46, 0.90);
+    border: 1px solid rgba(203, 166, 247, 0.25);
+    border-radius: 14px;
+    padding: 3px 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Base Pill Styling for Modules */
+#workspaces,
+#window,
+#clock,
+#pulseaudio,
+#cpu,
+#memory,
+#network,
+#tray,
+#custom-power {
+    background: #313244;
+    color: #cdd6f4;
+    padding: 4px 12px;
+    margin: 3px 3px;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Workspaces */
+#workspaces {
+    background: rgba(49, 50, 68, 0.8);
+    padding: 2px 4px;
+}
+
+#workspaces button {
+    padding: 3px 10px;
+    margin: 2px 2px;
+    border-radius: 8px;
+    color: #a6adc8;
+    background: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+#workspaces button:hover {
+    background: rgba(203, 166, 247, 0.2);
+    color: #cdd6f4;
+}
+
+#workspaces button.active {
+    background: #fab387;
+    color: #1e1e2e;
+    font-weight: 800;
+    box-shadow: 0 0 8px rgba(250, 179, 135, 0.6);
+}
+
+#workspaces button.urgent {
+    background: #f38ba8;
+    color: #1e1e2e;
+}
+
+/* Window Title */
+#window {
+    background: transparent;
+    color: #cdd6f4;
+    font-weight: 500;
+}
+
+/* Center Clock */
+#clock {
+    background: #cba6f7;
+    color: #1e1e2e;
+    font-weight: 800;
+    padding: 4px 16px;
+    box-shadow: 0 0 8px rgba(203, 166, 247, 0.4);
+}
+
+/* Audio */
+#pulseaudio {
+    color: #89b4fa;
+}
+
+#pulseaudio.muted {
+    color: #6c7086;
+    background: #1e1e2e;
+}
+
+/* Hardware Info */
+#cpu {
+    color: #a6e3a1;
+}
+
+#memory {
+    color: #f9e2af;
+}
+
+/* Network */
+#network {
+    color: #89dceb;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+/* System Tray */
+#tray {
+    background: #313244;
+}
+
+/* Power Button */
+#custom-power {
+    background: #f38ba8;
+    color: #1e1e2e;
+    padding: 4px 14px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+#custom-power:hover {
+    background: #eba0ac;
+    box-shadow: 0 0 10px rgba(243, 139, 168, 0.7);
+}
+
+/* Hover effects */
+#pulseaudio:hover,
+#cpu:hover,
+#memory:hover,
+#network:hover {
+    background: #45475a;
+}

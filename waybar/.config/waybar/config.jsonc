@@ -1,0 +1,108 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 38,
+    "margin-top": 8,
+    "margin-left": 14,
+    "margin-right": 14,
+    "spacing": 8,
+
+    // Modules layout
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "cpu",
+        "memory",
+        "network",
+        "tray",
+        "custom/power"
+    ],
+
+    // Workspaces (DP-1 gets 1-5, HDMI-A-1 gets 6-10)
+    "hyprland/workspaces": {
+        "all-outputs": false,
+        "format": "{name}",
+        "on-click": "activate",
+        "sort-by-number": true,
+        "active-only": false
+    },
+
+    // Active Window Title
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 45,
+        "separate-outputs": true
+    },
+
+    // Clock & Calendar
+    "clock": {
+        "format": " {:%I:%M %p}",
+        "format-alt": " {:%A, %B %d, %Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#cba6f7'><b>{}</b></span>",
+                "days": "<span color='#cdd6f4'><b>{}</b></span>",
+                "weeks": "<span color='#89b4fa'><b>W{}</b></span>",
+                "weekdays": "<span color='#fab387'><b>{}</b></span>",
+                "today": "<span color='#f38ba8'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+    // PulseAudio / WirePlumber
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 Muted",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol",
+        "scroll-step": 5
+    },
+
+    // CPU Usage
+    "cpu": {
+        "interval": 5,
+        "format": " {usage}%",
+        "tooltip": true
+    },
+
+    // Memory Usage
+    "memory": {
+        "interval": 10,
+        "format": "󰍛 {percentage}%",
+        "tooltip-format": "RAM: {used:0.1f}GiB / {total:0.1f}GiB ({percentage}%)"
+    },
+
+    // Network
+    "network": {
+        "format-wifi": " {signalStrength}%",
+        "format-ethernet": "󰈀 Connected",
+        "format-disconnected": "󰤮 Disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+    },
+
+    // System Tray
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+
+    // Power Action Button
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "hyprctl dispatch exit"
+    }
+}

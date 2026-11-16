@@ -56,8 +56,9 @@ local audioMixer  = "pavucontrol"
 -------------------
 ---- AUTOSTART ----
 -------------------
--- Ensures Wayland clipboard & notification services are ready
+-- Ensures Wayland bar, clipboard & notification services are ready
 hl.on("hyprland.start", function ()
+    hl.exec_cmd("waybar")
     hl.exec_cmd("wl-paste --type text --watch cliphist store")
     hl.exec_cmd("wl-paste --type image --watch cliphist store")
 end)
@@ -177,6 +178,7 @@ hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(audioMixer))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen(0))
 hl.bind(mainMod .. " + SHIFT + space", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + E", hl.dsp.layout("togglesplit"))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("killall -SIGUSR1 waybar || waybar"))
 
 -- Vim-style Navigation (Focus)
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
