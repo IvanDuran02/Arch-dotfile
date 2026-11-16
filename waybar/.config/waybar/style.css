@@ -6,7 +6,7 @@
     border: none;
     border-radius: 0;
     font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
     min-height: 0;
 }
@@ -19,9 +19,9 @@ window#waybar {
 window#waybar > box {
     background: rgba(30, 30, 46, 0.90);
     border: 1px solid rgba(203, 166, 247, 0.25);
-    border-radius: 10px;
-    padding: 1px 6px;
-    box-shadow: 0px -3px 10px rgba(0, 0, 0, 0.35);
+    border-radius: 14px;
+    padding: 3px 8px;
+    box-shadow: 0px -4px 14px rgba(0, 0, 0, 0.4);
 }
 
 /* Base Pill Styling for Modules */
@@ -36,22 +36,22 @@ window#waybar > box {
 #custom-power {
     background: #313244;
     color: #cdd6f4;
-    padding: 1px 9px;
-    margin: 1px 2px;
-    border-radius: 7px;
+    padding: 4px 12px;
+    margin: 3px 3px;
+    border-radius: 10px;
     transition: all 0.2s ease-in-out;
 }
 
 /* Workspaces */
 #workspaces {
     background: rgba(49, 50, 68, 0.8);
-    padding: 1px 3px;
+    padding: 2px 4px;
 }
 
 #workspaces button {
-    padding: 1px 7px;
-    margin: 1px 1px;
-    border-radius: 6px;
+    padding: 3px 10px;
+    margin: 2px 2px;
+    border-radius: 8px;
     color: #a6adc8;
     background: transparent;
     transition: all 0.2s ease-in-out;
@@ -66,7 +66,7 @@ window#waybar > box {
     background: #fab387;
     color: #1e1e2e;
     font-weight: 800;
-    box-shadow: 0 0 6px rgba(250, 179, 135, 0.5);
+    box-shadow: 0 0 8px rgba(250, 179, 135, 0.6);
 }
 
 #workspaces button.urgent {
@@ -79,7 +79,6 @@ window#waybar > box {
     background: transparent;
     color: #cdd6f4;
     font-weight: 500;
-    padding: 1px 6px;
 }
 
 /* Center Clock */
@@ -87,8 +86,8 @@ window#waybar > box {
     background: #cba6f7;
     color: #1e1e2e;
     font-weight: 800;
-    padding: 1px 14px;
-    box-shadow: 0 0 6px rgba(203, 166, 247, 0.35);
+    padding: 4px 16px;
+    box-shadow: 0 0 8px rgba(203, 166, 247, 0.4);
 }
 
 /* Audio */
@@ -128,9 +127,9 @@ window#waybar > box {
 #custom-power {
     background: #f38ba8;
     color: #1e1e2e;
-    padding: 1px 10px;
-    border-radius: 7px;
-    font-size: 13px;
+    padding: 4px 14px;
+    border-radius: 10px;
+    font-size: 15px;
 }
 
 #custom-power:hover {
