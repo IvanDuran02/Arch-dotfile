@@ -16,8 +16,8 @@ fi
 # Environment & PATH
 export PATH="$HOME/.local/bin:$PATH"
 
-# Golang
-export GOPATH="$HOME/go"
+# Golang (located in ~/Packages/go)
+export GOPATH="$HOME/Packages/go"
 export GOBIN="$GOPATH/bin"
 export PATH="$PATH:$GOBIN"
 
