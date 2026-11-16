@@ -73,6 +73,11 @@ hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 
+-- NVIDIA RTX 4080 optimizations
+hl.env("LIBVA_DRIVER_NAME", "nvidia")
+hl.env("GBM_BACKEND", "nvidia-drm")
+hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+
 
 -----------------------
 ---- LOOK AND FEEL ----
@@ -156,6 +161,9 @@ hl.config({
         touchpad = {
             natural_scroll = false,
         },
+    },
+    cursor = {
+        no_hardware_cursors = true, -- Fixes cursor blinking/flickering on NVIDIA
     },
 })
 
